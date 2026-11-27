@@ -1,0 +1,10 @@
+Options -Indexes
+DirectoryIndex index.php
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|php|js|css|json)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\.(m3u8|ts|mp4)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>

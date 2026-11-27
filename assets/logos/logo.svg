@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="NovaPlay">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#69A783"/><stop offset=".52" stop-color="#2C7CA6"/><stop offset="1" stop-color="#6C4AB6"/>
+    </linearGradient>
+    <linearGradient id="p" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DFF8EC"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="112" height="112" rx="28" fill="url(#g)"/>
+  <rect x="4.8" y="4.8" width="110.4" height="110.4" rx="27" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1.6"/>
+  <path d="M36 84V36l48 48V36" fill="none" stroke="url(#p)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M58 47l23 13-23 13z" fill="#FFFFFF" opacity=".92"/>
+</svg>

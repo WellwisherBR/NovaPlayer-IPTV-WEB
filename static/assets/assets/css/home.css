@@ -1,0 +1,129 @@
+/* =============================================================
+   Tela inicial — fundo tecnológico e grade: LIVE TV | MOVIES/SERIES
+   ============================================================= */
+body.page-home{background:#020B19}
+body.page-home::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 58% 62% at 8% -6%, rgba(16,86,158,.60), transparent 62%),
+    radial-gradient(ellipse 46% 50% at 88% 108%, rgba(105,167,131,.22), transparent 65%),
+    radial-gradient(ellipse 36% 40% at 62% 42%, rgba(69,62,166,.20), transparent 70%),
+    linear-gradient(165deg,#031026 0%,#020B19 55%,#010713 100%);
+}
+body.page-home::after{
+  content:"";position:fixed;inset:-20%;z-index:0;pointer-events:none;opacity:.7;
+  background:
+    repeating-conic-gradient(from 196deg at 6% 2%, rgba(94,176,255,.075) 0deg 1.6deg, transparent 1.6deg 11deg),
+    repeating-linear-gradient(118deg, rgba(255,255,255,.022) 0 1px, transparent 1px 74px);
+  mask-image:radial-gradient(ellipse 70% 70% at 18% 10%,#000 0%,transparent 72%);
+  -webkit-mask-image:radial-gradient(ellipse 70% 70% at 18% 10%,#000 0%,transparent 72%);
+  animation:ambientDrift 26s ease-in-out infinite alternate;
+}
+@keyframes ambientDrift{from{transform:translate3d(-1.2%,-.6%,0) scale(1)}to{transform:translate3d(1.5%,1%,0) scale(1.05)}}
+.ambient-orb{
+  position:fixed;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;
+  animation:orbPulse 9s ease-in-out infinite alternate;
+}
+.ambient-orb.one{width:420px;height:420px;left:-120px;top:-140px;background:rgba(28,112,196,.35)}
+.ambient-orb.two{width:360px;height:360px;right:-100px;bottom:-130px;background:rgba(105,167,131,.20);animation-delay:-4s}
+@keyframes orbPulse{from{opacity:.55;transform:scale(.94)}to{opacity:1;transform:scale(1.08)}}
+body.page-home .app-header,body.page-home .page-main,body.page-home .app-footer{z-index:2}
+
+.home-shell{width:100%;display:flex;flex-direction:column;gap:clamp(12px,1.4vh,20px);flex:1}
+.home-intro{display:flex;align-items:baseline;gap:12px;margin-bottom:2px}
+.home-intro h1{margin:0;font-size:clamp(1.15rem,1.7vw,1.5rem);font-weight:700;letter-spacing:.3px}
+.home-intro span{color:var(--muted);font-size:.82rem}
+
+.home-status{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  padding:10px 16px;border-radius:14px;border:1px solid var(--line);
+  background:rgba(7,26,54,.55);color:var(--muted);font-size:.82rem;
+}
+.home-status span{display:inline-flex;align-items:center;gap:8px}
+.home-status .ico{width:18px;height:18px}
+.home-status strong{color:#fff}
+.home-status.ok{border-color:rgba(124,231,182,.35);background:rgba(105,167,131,.12)}
+.home-status.ok .ico{color:var(--accent)}
+.home-status.error{border-color:rgba(240,113,120,.45);background:rgba(240,113,120,.12)}
+.home-status.error .ico,.home-status.empty .ico{color:#F07178}
+
+/* Duas colunas iguais: Live TV ocupa a coluna inteira; Movies e Series
+   empilhados na direita, juntos com a mesma altura do Live TV. */
+.home-grid{
+  flex:1;min-height:clamp(430px,72vh,780px);
+  display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  gap:clamp(26px,2.6vw,44px);
+}
+/* Espaço pequeno apenas entre Movies e Series */
+.home-right{display:grid;grid-template-rows:1fr 1fr;gap:clamp(12px,1.2vw,20px);min-height:0}
+
+/* Cartões ---------------------------------------------------- */
+.menu-card{
+  position:relative;overflow:hidden;isolation:isolate;border-radius:clamp(18px,1.7vw,28px);
+  border:1px solid rgba(255,255,255,.16);box-shadow:var(--shadow);
+  padding:clamp(22px,2.2vw,40px);display:flex;flex-direction:column;justify-content:space-between;
+  min-height:0;color:#fff;will-change:transform;
+}
+.menu-card::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(circle at 82% 18%,rgba(255,255,255,.24),transparent 42%),
+             linear-gradient(125deg,rgba(255,255,255,.10),transparent 55%);
+}
+.menu-card::after{
+  content:"";position:absolute;width:240px;height:240px;right:-70px;bottom:-110px;border-radius:50%;
+  background:rgba(255,255,255,.11);filter:blur(26px);z-index:-1;transition:transform .35s ease;
+}
+.menu-card:hover::after{transform:translate(-14px,-14px) scale(1.15)}
+.menu-card:hover{box-shadow:0 24px 60px rgba(0,0,0,.55),0 0 34px rgba(255,255,255,.10)}
+.menu-card .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.menu-card .card-icon{
+  width:clamp(56px,5.4vw,88px);height:clamp(56px,5.4vw,88px);display:grid;place-items:center;border-radius:22px;
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(6px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25);
+}
+.menu-card .card-icon .ico{width:55%;height:55%;stroke-width:1.7}
+.menu-card .card-count{
+  font-size:.76rem;padding:7px 13px;border-radius:30px;background:rgba(0,0,0,.24);
+  border:1px solid rgba(255,255,255,.18);white-space:nowrap;
+}
+.menu-card .card-body{margin-top:auto}
+.menu-card .card-title{
+  display:block;font-size:clamp(1.8rem,3vw,3rem);font-weight:800;letter-spacing:1.4px;
+  line-height:1.05;text-shadow:0 3px 18px rgba(0,0,0,.28);
+}
+.menu-card .card-sub{display:block;margin-top:10px;font-size:clamp(.8rem,1vw,1rem);color:rgba(255,255,255,.82)}
+.menu-card .card-arrow{position:absolute;right:clamp(18px,2vw,32px);bottom:clamp(18px,2vw,30px);opacity:.55;transition:transform .2s ease}
+.menu-card:hover .card-arrow{transform:translateX(5px);opacity:1}
+
+.card-live{background:linear-gradient(145deg,#69A783 0%,#2C7CA6 50%,#6C4AB6 100%);padding:clamp(20px,1.8vw,32px)}
+.card-live .card-title{font-size:clamp(2.2rem,4vw,4rem);letter-spacing:1.8px}
+.card-live .card-icon{background:rgba(255,255,255,.18)}
+.card-live::after{width:340px;height:340px;right:-130px;bottom:-170px;background:rgba(255,255,255,.13)}
+.card-movies{background:linear-gradient(140deg,#E23E57 0%,#F06292 48%,#FF9A44 100%)}
+.card-series{background:linear-gradient(140deg,#7A4FE0 0%,#2C5FC6 100%)}
+
+/* Responsividade -------------------------------------------- */
+@media (max-width:980px){
+  .home-grid{min-height:0}
+  .menu-card{padding:22px}
+  .card-live .card-title{font-size:clamp(2rem,4vw,3.2rem)}
+}
+@media (max-width:760px){
+  .home-grid{grid-template-columns:1fr}
+  .home-right{grid-template-rows:auto auto;min-height:auto}
+  .card-live{min-height:280px}
+  .card-movies,.card-series{min-height:220px}
+}
+@media (max-width:560px){
+  .page-main{padding:0 14px 18px}
+  .home-shell{gap:12px}
+  .home-grid{gap:12px}
+  .home-right{gap:12px}
+  .menu-card{padding:18px;border-radius:18px}
+  .menu-card .card-icon{width:54px;height:54px;border-radius:15px}
+  .menu-card .card-title{font-size:1.4rem;letter-spacing:.7px}
+  .card-live{min-height:230px}
+  .card-live .card-title{font-size:2.2rem}
+  .menu-card .card-count{font-size:.68rem;padding:5px 10px}
+  .home-intro span{display:none}
+}

@@ -1,0 +1,15 @@
+{
+  "name": "NovaPlay IPTV (estático)",
+  "short_name": "NovaPlay",
+  "description": "Player IPTV estático, sem PHP — playlists salvas no dispositivo.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#020B19",
+  "theme_color": "#020B19",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "./assets/icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
